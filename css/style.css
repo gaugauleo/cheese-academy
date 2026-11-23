@@ -1,0 +1,668 @@
+
+/* Webページ全体の外側の余白をなくす */
+body {
+    margin: 0;
+}
+
+
+/* ページの上から100px/横並び/両端に/上下中央/内側余白で上下→左右の指定*/
+header {
+    height:100px;
+    display: flex;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0 40px;
+}
+
+
+/* ロゴ画像の横幅指定（縦も自動的に変更される） */
+header img {
+    width:320px;
+}
+
+
+/* aで既に横並びだが一応display:flexしとく/メニューの間隔指定 */
+nav {
+    display:flex;
+    gap: 40px;
+}
+
+
+/* text-decoration:noneでメニューの下線を消す */
+/* transitionをhoverに書くと、離した時が0.3秒にならないからこっちに書く */
+nav a {
+    font-size: 16px;
+    color: #222222;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+
+ /* メニューにマウスを重ねたときがhover */
+nav a:hover {
+    color:#ffd61a;
+}
+
+
+/* class="main-visual"を指定（.つく）/文字を画像に重ねるための基準？ */
+/* メイン文字に黒い影を重ね掛け */
+.main-visual {
+    position:relative;
+    text-shadow: 2px 2px 15px black,
+                 3px 3px 30px black;
+}
+
+
+/* メイン画像に白いぼかしを入れる */
+.main-visual::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        white 0%,
+        transparent 35%,
+        transparent 65%,
+        white 100%
+    );
+    z-index: 1;
+    pointer-events: none;
+}
+
+
+/* 画像の下にできる隙間をなくす/横幅いっぱいに画像を広げる */
+.main-visual img {
+    display: block;
+    width: 100%;
+}
+
+
+/* h1で書いた文字を指定/画像の上に文字を置く/上から40%左から50% */
+/* nowrapでブラウザを小さくした時も改行しないようにする */
+.main-visual h1 {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 40px;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+/* 上のh1と同じ解説 */
+.main-visual p {
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 24px;
+    white-space: nowrap;
+    z-index: 2;
+}
+
+
+/* id="about"を指定/文字を中央揃え/上下に60pxの余白 */
+#about {
+    text-align: center;
+    padding: 60px 0;
+}
+
+
+/* boldで太字になる/文字の下に13pxの余白 */
+#about h2 {
+    color: #ffd61a;
+    font-size: 24px;
+    font-weight:bold;
+    margin-bottom:13px;
+}
+
+
+/* line-heightで行間を文字サイズの２倍に */
+#about p {
+    font-size: 14px;
+    line-height: 2;
+    color: #222222;
+    margin-bottom: 30px;
+}
+
+
+#about > p:last-of-type {
+    margin-bottom: 80px;
+}
+
+
+/* サブタイトルの下に54pxの余白 */
+#about .about-subtitle {
+    font-size: 16px;
+    margin-bottom: 54px;
+}
+
+
+/* ４枚の写真を横並びにする */
+.about-photos {
+    display: flex;
+}
+
+
+/* 一枚につき横幅25％にする/写真の高さを200pxにする/ */
+.about-photos img {
+    width: 25%;
+    opacity: 0.93;
+    border-radius: 10px;
+}
+
+
+/* 文字を中央揃え/上下に60pxの余白 */
+.course-0 {
+    text-align: center;
+}
+
+
+.course-0 h2 {
+    font-size:24px;
+    font-weight: bold;
+}
+
+
+.course-0 p {
+    font-size: 14px;
+    line-height: 2;
+    margin-bottom: 60px;
+}
+
+
+/* 写真と文章を横並び/上下の中央に表示/背景を薄く色付け */
+.course-1 {
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+}
+
+
+/* 写真の横幅を半分にする */
+.course-1 img {
+    width: 50%;
+}
+
+
+/* 文章の横幅を半分にする/内側に40pxの余白/文章を左揃え */
+.course-text {
+    width: 50%;
+    padding: 40px;
+    text-align: left;
+}
+
+
+/* h3の下に32px余白をつくる */
+.course-text h3 {
+    font-size: 21px;
+    margin-bottom: 32px;
+}
+
+
+.course-text p {
+    font-size: 14px;
+    line-height: 2;
+}
+
+
+/* row-reverseで横並び順を逆にする/centerで上下中央揃え */
+.course-2 {
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+    flex-direction: row-reverse;
+}
+
+
+.course-2 img {
+    width: 50%;
+}
+
+
+/* textを右に170pxずらす */
+.course-2 .course-text {
+    transform: translatex(170px);
+}
+
+
+.course-3 {
+    display: flex;
+    align-items: center;
+    background: #fafafa;
+}
+
+
+.course-3 img {
+    width: 50%;
+}
+
+
+/* 3枚のコース画像の設定 */
+.course-image {
+    width: 50%;
+    position: relative;
+    flex-shrink: 0;
+}
+
+
+/* 画像を囲みの幅に合わせる */
+.course-image img {
+    display: block;
+    width: 100%;
+}
+
+
+/* 画像の左右に白いぼかしを重ねる */
+.course-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0.8) 0%,
+        transparent 35%,
+        transparent 65%,
+        rgba(255,255,255,0.8) 100%
+    );
+    pointer-events: none;
+}
+
+
+#news {
+    text-align: center;
+    padding: 55px 0 62px;
+}
+
+
+#news h2 {
+    color: #ffd61a;
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+
+
+#news p {
+    font-size: 16px;
+}
+
+
+.news-list {
+    display: flex;
+    gap: 30px;
+    max-width: 960px;
+    margin: 48px auto 40px;
+    text-align: left;
+}
+
+
+.news-item {
+    flex: 1;
+}
+
+
+.news-item img {
+    width:100%;
+    opacity: 0.93;
+    border-radius: 10px;
+}
+
+
+#news .news-item p {
+    font-size: 13px;
+    line-height: 1.85;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+
+/* display flexは横並び機能だが、位置を揃える機能もあるので必須 */
+/* 文字を左右中央/上下中央/ボタンの横幅/高さ/ボタン自体を左右中央 */
+/* text-decorationでリンクの下線を消す */
+.news-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 60px;
+    margin: 0 auto;
+    background: #ffd61a;
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    transition: opacity 0.2s;
+}
+
+
+/* マウスを重ねた時だけ色が70%になる */
+.news-button:hover {
+    opacity: 0.7;
+}
+
+
+#access {
+    background: #fafafa;
+    text-align: center;
+    padding: 60px 0;
+}
+
+
+#access h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+
+#access p {
+    font-size: 14px;
+}
+
+
+/* display:blockは地図をブロック要素として表示する？ */
+/* 横いっぱい100%に広げる/高さを320px/地図の外枠を消す */
+#access iframe {
+    display: block;
+    width: 100%;
+    height: 320px;
+    border: 0;
+}
+
+
+.school-info {
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 50px 0;
+    text-align: left;
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    row-gap: 24px;
+}
+
+
+.school-info dt {
+    font-weight: bold;
+    margin-top: 0;
+}
+
+
+.school-info dd {
+    margin-left: 0;
+}
+
+
+#contact {
+    padding: 60px 0;
+    text-align: center;
+}
+
+
+#contact h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 13px;
+}
+
+
+#contact p{
+    font-size: 14px;
+}
+
+.contact-1 {
+    margin-top: 55px;
+    line-height: 2;
+}
+
+
+.contact-2 {
+    margin-top: 24px;
+    line-height: 2;
+}
+
+
+#inquiry {
+    max-width: 640px;
+    margin: 60px auto;
+}
+
+
+.form-1 {
+    display: flex;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+
+.form-1 label {
+    width: 200px;
+    text-align: left;
+    font-size: 14px;
+}
+
+
+.form-1 input {
+    width: 320px;
+    padding: 10px;
+    box-sizing:border-box;
+}
+
+
+.form-1 select {
+    width: 320px;
+    height: 40px;
+    padding: 10px;
+}
+
+
+fieldset.form-1 {
+    border: none;
+    margin: 0;
+    display: flex;
+    align-items: flex-start;
+}
+
+
+fieldset.form-1 legend {
+    float: left;
+    width: 200px;
+}
+
+
+.form-2 {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+
+.form-2 label {
+    width: auto;
+}
+
+
+.form-2 input {
+    width: auto;
+}
+
+
+.form-1 textarea {
+    width: 320px;
+    height: 120px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+
+.form-submit {
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+.form-submit button {
+    width: 300px;
+    height: 60px;
+    color: white;
+    background-color: #ffd61a;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+
+.form-submit button:hover {
+    opacity: 0.7;
+}
+
+
+footer {
+    background-color: #707070;
+    color: white;
+    text-align: center;
+    padding: 7px 0;
+}
+
+
+
+/* 画面幅が700px以下のときだけ適用 */
+@media screen and (max-width: 700px) {
+
+    /* 横幅の計算に余白を含める */
+    * {
+        box-sizing: border-box;
+    }
+
+    /* ヘッダー */
+    header {
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    header img {
+        max-width: 100%;
+    }
+
+    nav {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    /* トップ画像の文字 */
+    .main-visual h1 {
+        font-size: 22px;
+        width: 90%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    .main-visual p {
+        font-size: 14px;
+        width: 90%;
+        white-space: normal;
+        text-align: center;
+    }
+
+    /* ABOUTの画像を2枚ずつ表示 */
+    .about-photos {
+        flex-wrap: wrap;
+    }
+
+    .about-photos img {
+        width: 50%;
+    }
+
+    /* COURSEを縦並びにする */
+    .course-1,
+    .course-2,
+    .course-3 {
+        flex-direction: column;
+    }
+
+    .course-image {
+        width: 100%;
+    }
+
+    .course-image img {
+        width: 100%;
+    }
+
+    .course-text {
+        width: 100%;
+        padding: 30px 20px;
+    }
+
+    .course-2 .course-text {
+        transform: none;
+    }
+
+    /* NEWSを縦並びにする */
+    .news-list {
+        flex-direction: row;
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .news-item {
+        min-width: 0;
+    }
+
+    /* ACCESS */
+    .school-info {
+        grid-template-columns: 1fr;
+        padding: 30px 20px;
+    }
+
+    /* CONTACT */
+    #inquiry {
+        width: 90%;
+    }
+
+    .form-1 {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+
+    .form-1 label {
+        width: 100%;
+    }
+
+    .form-1 input,
+    .form-1 select,
+    .form-1 textarea {
+        width: 100%;
+    }
+
+    fieldset.form-1 {
+        display: block;
+    }
+
+    fieldset.form-1 legend {
+        float: none;
+        width: auto;
+        margin-bottom: 15px;
+    }
+
+    .form-2 input {
+        width: auto;
+    }
+
+    .news-button,
+    .form-submit button {
+        max-width: 90%;
+    }
+}
